@@ -2,7 +2,7 @@
 # WICHTIG: Ersetzen Sie DEIN-GITHUB-NAME zweimal durch Ihren GitHub-Benutzernamen.
 backend:
   name: github
-  repo: DEIN-GITHUB-NAME/DEIN-GITHUB-NAME.github.io
+  repo: jjullianf/julian_site
   branch: main
 
 # Hochgeladene Dateien (PDFs, Bilder) landen im Ordner /uploads im Repository
