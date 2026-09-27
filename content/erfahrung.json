@@ -1,0 +1,33 @@
+{
+  "titel": "Erfahrung",
+  "einleitung": "",
+  "stellen": [
+    {
+      "titel": "Projektleitung Open Air Cinema",
+      "untertitel": "Luna AG in Kooperation mit Coop Open Air Cinema · Immensee · 08.2025 & 08.2026",
+      "text": "Verantwortlich für die Koordination eines Openair-Kinos mit 400 Sitzplätzen.",
+      "empfehlung": {
+        "titel": "Empfehlungsschreiben Luna AG",
+        "datei": "/uploads/Empfehlungsschreiben_Luna.pdf"
+      }
+    },
+    {
+      "titel": "Operations Management Intern & Werkstudent",
+      "untertitel": "heyMia (Northstar Digital Ventures) · Zürich · 12.2024 – 06.2025",
+      "text": "Tägliche Abläufe einer KI-Rekrutierungsplattform für die Schweizer Gastronomie.",
+      "empfehlung": {
+        "titel": "Empfehlungsschreiben heyMia",
+        "datei": "/uploads/Empfehlungsschreiben_heyMia.pdf"
+      }
+    },
+    {
+      "titel": "Praktika und Arbeit im Zwischenjahr",
+      "untertitel": "Schaan (FL) & Zürich · 10.2020 – 07.2021",
+      "text": "Kundenakquise und -pflege, Lieferantenkoordination, praktische Baustellenarbeit sowie Servicearbeit in dynamischen Teams.",
+      "empfehlung": {
+        "titel": "",
+        "datei": ""
+      }
+    }
+  ]
+}

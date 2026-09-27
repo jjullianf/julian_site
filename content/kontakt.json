@@ -1,0 +1,21 @@
+{
+  "titel": "Nächster Halt: Ihr Unternehmen",
+  "text": "Ich freue mich, von Ihnen zu hören.",
+  "punkte": [
+    {
+      "label": "E-Mail",
+      "wert": "julian.sebastian.frick@gmail.com",
+      "link": "mailto:julian.sebastian.frick@gmail.com"
+    },
+    {
+      "label": "Telefon",
+      "wert": "+41 79 933 46 43",
+      "link": "tel:+41799334643"
+    },
+    {
+      "label": "LinkedIn",
+      "wert": "Profil ergänzen",
+      "link": ""
+    }
+  ]
+}

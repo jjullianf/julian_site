@@ -1,0 +1,157 @@
+# Backend (Sveltia CMS) für die Website von Julian Frick
+# WICHTIG: Ersetzen Sie DEIN-GITHUB-NAME zweimal durch Ihren GitHub-Benutzernamen.
+backend:
+  name: github
+  repo: DEIN-GITHUB-NAME/DEIN-GITHUB-NAME.github.io
+  branch: main
+
+# Hochgeladene Dateien (PDFs, Bilder) landen im Ordner /uploads im Repository
+media_folder: uploads
+public_folder: /uploads
+
+collections:
+  - name: seiten
+    label: Inhalte der Website
+    files:
+      - name: ausbildung
+        label: "Ausbildung (Universität)"
+        file: content/ausbildung.json
+        fields:
+          - { name: titel, label: Titel, widget: string }
+          - name: abschnitte
+            label: Abschnitte
+            label_singular: Abschnitt
+            widget: list
+            summary: "{{fields.ueberschrift}}"
+            fields:
+              - { name: ueberschrift, label: "Überschrift", widget: string }
+              - { name: untertitel, label: "Untertitel (z. B. Uni · Zeitraum)", widget: string, required: false }
+              - { name: text, label: Text, widget: markdown, required: false }
+              - name: dokumente
+                label: "Dokumente (Notenauszug, Diplom …)"
+                label_singular: Dokument
+                widget: list
+                required: false
+                summary: "{{fields.titel}}"
+                fields:
+                  - { name: titel, label: Titel, widget: string }
+                  - { name: datei, label: "Datei (PDF oder Bild)", widget: file, accept: "application/pdf,image/*" }
+
+      - name: erfahrung
+        label: "Erfahrung (Bürogebäude)"
+        file: content/erfahrung.json
+        fields:
+          - { name: titel, label: Titel, widget: string }
+          - { name: einleitung, label: "Einleitung (optional)", widget: markdown, required: false }
+          - name: stellen
+            label: Stellen
+            label_singular: Stelle
+            widget: list
+            summary: "{{fields.titel}}"
+            fields:
+              - { name: titel, label: "Titel der Stelle", widget: string }
+              - { name: untertitel, label: "Firma · Ort · Zeitraum", widget: string, required: false }
+              - { name: text, label: Text, widget: markdown, required: false }
+              - name: empfehlung
+                label: "Empfehlungsschreiben (erscheint rechts)"
+                widget: object
+                required: false
+                fields:
+                  - { name: titel, label: Titel, widget: string, required: false }
+                  - { name: datei, label: "Datei (PDF oder Bild)", widget: file, required: false, accept: "application/pdf,image/*" }
+
+      - name: projekte
+        label: "Meine Projekte (Laptop)"
+        file: content/projekte.json
+        fields:
+          - { name: titel, label: Titel, widget: string }
+          - { name: einleitung, label: Einleitung, widget: markdown, required: false }
+          - name: projekte
+            label: Projekte
+            label_singular: Projekt
+            widget: list
+            summary: "{{fields.titel}}"
+            fields:
+              - { name: titel, label: Titel, widget: string }
+              - { name: bild, label: "Bild / Screenshot", widget: image }
+              - { name: kurz, label: "Kurzbeschreibung (unter dem Bild)", widget: string, required: false }
+              - { name: text, label: "Text (nach dem Anklicken)", widget: markdown, required: false }
+              - { name: link, label: "Link zur Website (optional)", widget: string, required: false }
+
+      - name: suche
+        label: "Was ich suche (Wegweiser)"
+        file: content/suche.json
+        fields:
+          - { name: titel, label: Titel, widget: string }
+          - { name: untertitel, label: Untertitel, widget: string, required: false }
+          - name: punkte
+            label: Punkte
+            label_singular: Punkt
+            widget: list
+            summary: "{{fields.label}}: {{fields.wert}}"
+            fields:
+              - { name: label, label: Bezeichnung, widget: string }
+              - { name: wert, label: Inhalt, widget: string }
+
+      - name: kontakt
+        label: "Kontakt (Bahnhof)"
+        file: content/kontakt.json
+        fields:
+          - { name: titel, label: Titel, widget: string }
+          - { name: text, label: Text, widget: markdown, required: false }
+          - name: punkte
+            label: Kontaktangaben
+            label_singular: Angabe
+            widget: list
+            summary: "{{fields.label}}: {{fields.wert}}"
+            fields:
+              - { name: label, label: "Bezeichnung (z. B. E-Mail)", widget: string }
+              - { name: wert, label: "Angezeigter Text", widget: string }
+              - { name: link, label: "Link (mailto:…, tel:…, https://…)", widget: string, required: false }
+
+      - name: downloads
+        label: "CV & Downloads"
+        file: content/downloads.json
+        fields:
+          - { name: titel, label: Titel, widget: string }
+          - { name: text, label: Text, widget: markdown, required: false }
+          - name: dateien
+            label: Dateien
+            label_singular: Datei
+            widget: list
+            summary: "{{fields.titel}}"
+            fields:
+              - { name: titel, label: Titel, widget: string }
+              - { name: datei, label: Datei, widget: file }
+
+      - name: easteregg
+        label: "Easter Egg 1/3 (Amor)"
+        file: content/easteregg.json
+        fields:
+          - { name: titel, label: Titel, widget: string }
+          - { name: text, label: Text, widget: markdown, required: false }
+          - name: fotos
+            label: Fotos
+            label_singular: Foto
+            widget: list
+            required: false
+            fields:
+              - { name: bild, label: Bild, widget: image }
+              - { name: beschreibung, label: "Beschreibung (optional)", widget: string, required: false }
+
+      - name: allgemein
+        label: "Allgemein (Name, Beschriftungen)"
+        file: content/allgemein.json
+        fields:
+          - { name: name, label: "Name oben links", widget: string }
+          - { name: hinweis, label: "Hinweis unten links", widget: string }
+          - { name: download_knopf, label: "Text unten rechts", widget: string }
+          - name: beschriftungen
+            label: "Beschriftungen beim Überfahren"
+            widget: object
+            fields:
+              - { name: ausbildung, label: Universität, widget: string }
+              - { name: erfahrung, label: "Bürogebäude", widget: string }
+              - { name: projekte, label: Laptop, widget: string }
+              - { name: suche, label: Wegweiser, widget: string }
+              - { name: kontakt, label: Bahnhof, widget: string }

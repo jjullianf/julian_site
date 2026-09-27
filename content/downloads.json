@@ -1,0 +1,22 @@
+{
+  "titel": "CV & Downloads",
+  "text": "Alle wichtigen Dokumente an einem Ort.",
+  "dateien": [
+    {
+      "titel": "Lebenslauf",
+      "datei": "/uploads/Lebenslauf_Julian_Frick.pdf"
+    },
+    {
+      "titel": "Notenauszug Master",
+      "datei": "/uploads/Notenauszug_Master.pdf"
+    },
+    {
+      "titel": "Notenauszug Bachelor",
+      "datei": "/uploads/Notenauszug_Bachelor.pdf"
+    },
+    {
+      "titel": "Bachelordiplom",
+      "datei": "/uploads/Bachelordiplom.pdf"
+    }
+  ]
+}

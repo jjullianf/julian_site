@@ -1,0 +1,27 @@
+{
+  "titel": "Meine Projekte",
+  "einleitung": "Neben dem Studium baue ich eigene Websites, von der Idee über das Design bis zu SEO und Monetarisierung. Klicken Sie auf ein Projekt für mehr Details.",
+  "projekte": [
+    {
+      "titel": "gewinnspieleschweiz.ch",
+      "bild": "/uploads/gewinnspieleschweiz.jpg",
+      "kurz": "Plattform für Schweizer Gewinnspiele",
+      "text": "Eine Übersicht aktueller Gewinnspiele in der Schweiz, mit Newsletter, Blog und Instagram-Kanal. Gebaut auf GitHub Pages, mit automatisch generierten Seiten.",
+      "link": "https://gewinnspieleschweiz.ch"
+    },
+    {
+      "titel": "shikaku.ch",
+      "bild": "/uploads/shikaku.jpg",
+      "kurz": "Tägliches Logikrätsel",
+      "text": "Ein Logikrätsel-Spiel mit Rangliste, Archiv und SEO-Seiten.",
+      "link": "https://shikaku.ch"
+    },
+    {
+      "titel": "nonogram.ch",
+      "bild": "/uploads/nonogram.jpg",
+      "kurz": "Tägliche Nonogramme in vier Grössen",
+      "text": "Von Grund auf gebaut: tägliche Rätsel in vier Grössen, Rangliste und Anleitung.",
+      "link": "https://nonogram.ch"
+    }
+  ]
+}

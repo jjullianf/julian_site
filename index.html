@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Julian Frick</title>
+<meta name="description" content="Julian Frick – Marketing Management, Universität St. Gallen. Ausbildung, Erfahrung und Projekte.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Work+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="head"><h1 id="name">Julian Frick</h1></header>
+  <div class="scroller" id="scroller"><div class="stage" id="stage"></div></div>
+  <footer class="foot">
+    <span id="hint">Fahren Sie mit der Maus über einen Ort und klicken Sie darauf, um mehr zu sehen.</span>
+    <button type="button" class="linkbtn" id="dl-btn">CV/Downloads</button>
+  </footer>
+</div>
+
+<div class="veil" id="veil" hidden>
+  <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="s-title">
+    <span class="tape" aria-hidden="true"></span>
+    <button class="x" type="button" id="s-close" aria-label="Schliessen">×</button>
+    <div id="s-body"></div>
+  </div>
+</div>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="v-title" hidden>
+  <div class="vbar"><b id="v-title"></b><span class="acts"><a id="v-dl" href="#" download>Herunterladen</a><button type="button" class="close" id="v-close" aria-label="Schliessen">×</button></span></div>
+  <div class="vbody" id="v-body"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

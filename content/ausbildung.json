@@ -1,0 +1,37 @@
+{
+  "titel": "Ausbildung",
+  "abschnitte": [
+    {
+      "ueberschrift": "Master in Marketing Management",
+      "untertitel": "Universität St. Gallen (HSG) · 09.2025 – 02.2027",
+      "text": "Notendurchschnitt 5.5. Kurse unter anderem Cross Media (5.75), Sales Management in B2B-Märkten (5.5), Marketing Management (5.75) und Digital Advertising (6).\n\nNeben dem Studium: Head of Communication & Co-Head of Marketing im **Marketing Club HSG**, verantwortlich für die strategische Planung der Marketingmassnahmen sowie die interne und externe Kommunikation.",
+      "dokumente": [
+        {
+          "titel": "Notenauszug Master",
+          "datei": "/uploads/Notenauszug_Master.pdf"
+        }
+      ]
+    },
+    {
+      "ueberschrift": "Bachelor in Betriebswirtschaftslehre",
+      "untertitel": "Universität St. Gallen (HSG) · 09.2021 – 07.2025",
+      "text": "Notendurchschnitt 5.01, Schwerpunkt Marketing. Kurse unter anderem Business and Market Research (5.5), Designing Digital Business Models (5.5), Dienstleistungsmarketing (5.25) und Leadership (6).\n\nBachelorarbeit (5.25): *Learnings from Gamification in E-Commerce for Management Control Systems*. Capstone-Projekt (5.5): Wachstumsstrategien und internationaler Markteintritt für ein Start-up.",
+      "dokumente": [
+        {
+          "titel": "Notenauszug Bachelor",
+          "datei": "/uploads/Notenauszug_Bachelor.pdf"
+        },
+        {
+          "titel": "Bachelordiplom",
+          "datei": "/uploads/Bachelordiplom.pdf"
+        }
+      ]
+    },
+    {
+      "ueberschrift": "Austauschsemester",
+      "untertitel": "Universität Kopenhagen · 02.2024 – 06.2024",
+      "text": "Austauschsemester mit Fokus auf Danish Culture Courses.",
+      "dokumente": []
+    }
+  ]
+}
