@@ -1,12 +1,21 @@
 // Julian Frick – Website. Inhalte kommen aus /content/*.json (bearbeitbar unter /admin).
-const PIECES = {"uni": {"x": 0.54, "y": 25.21, "w": 29.25, "h": 33.62, "clip": "polygon(89.7% 1.1%,60.8% 0.9%,59.2% 1.9%,53.7% 0.0%,37.7% 2.5%,36.4% 3.3%,32.9% 12.3%,28.8% 16.9%,27.4% 22.8%,8.5% 23.7%,8.4% 48.1%,0.7% 50.3%,0.0% 52.1%,0.0% 99.7%,99.2% 99.8%,99.9% 75.2%,97.9% 54.6%,92.7% 50.3%,92.7% 31.5%,90.3% 23.1%)"}, "tower": {"x": 30.02, "y": 10.11, "w": 17.58, "h": 38.94, "clip": "polygon(17.2% 11.7%,17.0% 38.5%,15.0% 40.2%,7.7% 41.3%,5.8% 42.5%,3.7% 60.1%,1.7% 68.6%,2.9% 69.3%,5.8% 69.3%,7.1% 70.4%,7.1% 77.0%,6.1% 79.9%,1.0% 83.5%,0.0% 94.8%,12.8% 98.2%,45.2% 99.9%,81.3% 98.8%,98.0% 94.4%,99.8% 86.6%,98.5% 70.4%,97.8% 68.0%,93.4% 64.5%,92.5% 64.5%,87.8% 68.4%,85.7% 78.7%,84.7% 80.5%,82.7% 81.1%,77.7% 81.1%,75.9% 80.6%,75.0% 79.5%,75.0% 62.4%,75.9% 61.3%,77.4% 60.9%,81.1% 61.6%,85.5% 61.2%,85.2% 35.7%,83.8% 30.9%,83.5% 23.6%,81.5% 23.5%,78.2% 24.9%,72.6% 25.7%,66.7% 27.6%,63.6% 27.3%,62.4% 26.0%,62.4% 20.1%,63.3% 19.0%,64.8% 18.6%,64.1% 15.3%,64.5% 11.6%,55.1% 8.5%,44.0% 5.7%,42.3% 4.1%,42.2% 0.0%,40.8% 0.1%,40.8% 4.4%,39.5% 5.7%)"}, "laptop": {"x": 48.27, "y": 33.72, "w": 16.39, "h": 20.32, "clip": "polygon(0.0% 78.8%,1.1% 88.0%,78.5% 99.7%,93.2% 82.7%,93.2% 72.5%,97.6% 61.8%,99.8% 1.8%,33.0% 0.0%,29.2% 56.5%)"}, "sign": {"x": 71.59, "y": 32.5, "w": 14.08, "h": 29.73, "clip": "polygon(43.5% 0.0%,40.6% 0.9%,36.5% 4.7%,36.9% 10.2%,36.1% 10.9%,14.2% 12.0%,0.8% 14.0%,0.0% 15.9%,0.8% 16.8%,0.2% 19.5%,1.3% 35.2%,36.1% 32.9%,36.9% 33.6%,36.9% 38.8%,36.1% 39.5%,18.5% 40.3%,1.9% 42.0%,1.1% 43.8%,2.1% 48.7%,2.5% 62.4%,5.1% 63.0%,36.1% 60.8%,36.9% 61.5%,36.7% 83.7%,35.5% 83.5%,30.4% 75.5%,29.3% 79.1%,29.3% 87.8%,22.5% 81.2%,26.3% 93.9%,22.5% 96.6%,21.9% 98.4%,34.6% 99.5%,41.0% 98.4%,52.0% 99.8%,62.0% 99.5%,62.2% 98.6%,59.7% 95.9%,65.2% 89.8%,60.1% 90.3%,59.7% 89.4%,64.3% 81.2%,56.7% 85.7%,57.1% 79.6%,51.6% 85.0%,50.3% 85.0%,49.5% 60.5%,54.6% 59.4%,81.5% 58.7%,90.0% 53.7%,99.8% 46.3%,79.4% 36.0%,69.2% 37.4%,49.0% 38.5%,48.6% 32.6%,62.6% 30.8%,83.7% 30.1%,99.8% 18.8%,82.0% 8.1%,78.6% 7.3%,53.9% 10.2%,48.8% 10.0%,48.0% 3.0%)"}, "train": {"x": 83.34, "y": 25.53, "w": 15.88, "h": 17.55, "clip": "polygon(1.3% 40.9%,2.3% 44.5%,8.1% 43.9%,10.0% 46.4%,9.6% 60.0%,7.0% 72.7%,0.0% 76.1%,3.4% 79.1%,8.5% 79.1%,16.6% 82.7%,27.7% 81.5%,33.9% 84.5%,36.3% 83.9%,42.4% 85.8%,44.4% 88.2%,48.4% 87.6%,50.7% 85.2%,58.0% 89.4%,62.7% 88.8%,66.7% 91.8%,69.9% 90.0%,74.2% 94.8%,81.5% 95.5%,83.2% 99.7%,85.1% 99.4%,85.9% 93.6%,87.4% 92.4%,92.8% 93.0%,95.3% 95.5%,98.1% 95.5%,99.8% 90.9%,99.4% 74.8%,96.0% 49.4%,93.0% 46.1%,92.7% 42.4%,85.7% 34.5%,71.0% 13.9%,46.3% 2.4%,45.4% 0.0%,38.8% 0.0%,37.5% 3.0%,23.7% 20.0%)"}, "cupid": {"x": 77.5, "y": 12.5, "w": 4.4, "h": 5.76}};
+const PIECES = {"uni": {"x": 0.54, "y": 25.21, "w": 29.25, "h": 33.62, "clip": "polygon(89.7% 1.1%,60.8% 0.9%,59.2% 1.9%,53.7% 0.0%,37.7% 2.5%,36.4% 3.3%,32.9% 12.3%,28.8% 16.9%,27.4% 22.8%,8.5% 23.7%,8.4% 48.1%,0.7% 50.3%,0.0% 52.1%,0.0% 99.7%,99.2% 99.8%,99.9% 75.2%,97.9% 54.6%,92.7% 50.3%,92.7% 31.5%,90.3% 23.1%)"}, "tower": {"x": 30.02, "y": 10.11, "w": 17.58, "h": 38.94, "clip": "polygon(17.2% 11.7%,17.0% 38.5%,15.0% 40.2%,7.7% 41.3%,5.8% 42.5%,3.7% 60.1%,1.7% 68.6%,2.9% 69.3%,5.8% 69.3%,7.1% 70.4%,7.1% 77.0%,6.1% 79.9%,1.0% 83.5%,0.0% 94.8%,12.8% 98.2%,45.2% 99.9%,81.3% 98.8%,98.0% 94.4%,99.8% 86.6%,98.5% 70.4%,97.8% 68.0%,93.4% 64.5%,92.5% 64.5%,87.8% 68.4%,85.7% 78.7%,84.7% 80.5%,82.7% 81.1%,77.7% 81.1%,75.9% 80.6%,75.0% 79.5%,75.0% 62.4%,75.9% 61.3%,77.4% 60.9%,81.1% 61.6%,85.5% 61.2%,85.2% 35.7%,83.8% 30.9%,83.5% 23.6%,81.5% 23.5%,78.2% 24.9%,72.6% 25.7%,66.7% 27.6%,63.6% 27.3%,62.4% 26.0%,62.4% 20.1%,63.3% 19.0%,64.8% 18.6%,64.1% 15.3%,64.5% 11.6%,55.1% 8.5%,44.0% 5.7%,42.3% 4.1%,42.2% 0.0%,40.8% 0.1%,40.8% 4.4%,39.5% 5.7%)"}, "laptop": {"x": 48.27, "y": 33.72, "w": 16.39, "h": 20.32, "clip": "polygon(0.0% 78.8%,1.1% 88.0%,78.5% 99.7%,93.2% 82.7%,93.2% 72.5%,97.6% 61.8%,99.8% 1.8%,33.0% 0.0%,29.2% 56.5%)"}, "sign": {"x": 73.74, "y": 41.38, "w": 9.84, "h": 20.85, "clip": "polygon(43.5% 0.0%,40.4% 1.0%,36.5% 4.8%,37.1% 10.2%,35.3% 11.2%,18.5% 11.7%,0.6% 14.5%,1.2% 35.2%,33.1% 32.9%,37.1% 33.9%,36.2% 39.5%,1.5% 42.3%,2.4% 62.2%,4.9% 63.0%,36.5% 61.0%,36.5% 83.4%,30.1% 75.8%,29.2% 87.8%,22.5% 81.4%,26.1% 93.9%,21.3% 98.0%,25.8% 99.2%,42.6% 98.2%,50.2% 99.7%,59.6% 99.7%,62.3% 99.0%,59.9% 95.7%,65.0% 90.1%,59.9% 89.8%,64.4% 81.1%,56.8% 85.7%,57.1% 79.8%,52.0% 84.7%,50.2% 84.7%,49.5% 60.5%,70.2% 58.4%,81.5% 58.7%,99.7% 46.4%,79.6% 36.2%,49.5% 38.8%,48.3% 37.8%,48.3% 32.9%,53.8% 31.4%,83.3% 30.4%,99.7% 18.9%,82.1% 8.2%,74.5% 7.7%,67.5% 9.2%,48.9% 10.2%,47.7% 2.8%)"}, "train": {"x": 83.34, "y": 25.53, "w": 15.88, "h": 17.55, "clip": "polygon(1.3% 40.9%,2.3% 44.5%,8.1% 43.9%,10.0% 46.4%,9.6% 60.0%,7.0% 72.7%,0.0% 76.1%,3.4% 79.1%,8.5% 79.1%,16.6% 82.7%,27.7% 81.5%,33.9% 84.5%,36.3% 83.9%,42.4% 85.8%,44.4% 88.2%,48.4% 87.6%,50.7% 85.2%,58.0% 89.4%,62.7% 88.8%,66.7% 91.8%,69.9% 90.0%,74.2% 94.8%,81.5% 95.5%,83.2% 99.7%,85.1% 99.4%,85.9% 93.6%,87.4% 92.4%,92.8% 93.0%,95.3% 95.5%,98.1% 95.5%,99.8% 90.9%,99.4% 74.8%,96.0% 49.4%,93.0% 46.1%,92.7% 42.4%,85.7% 34.5%,71.0% 13.9%,46.3% 2.4%,45.4% 0.0%,38.8% 0.0%,37.5% 3.0%,23.7% 20.0%)"}, "cupid": {"x": 77.5, "y": 12.5, "w": 4.4, "h": 5.76}, "figur": {"x": 44.26, "y": 54.15, "w": 8.79, "h": 43.62}, "ki": {"x": 57.79, "y": 80.94, "w": 6.31, "h": 7.15}, "flugzeug": {"x": 42.76, "y": 4.79, "w": 7.48, "h": 4.47}, "fahnen": {"x": 93.66, "y": 18.72, "w": 3.17, "h": 4.47}};
 const SPOTS = [
   {id:"ausbildung", piece:"uni",    tilt:"-1.5deg"},
   {id:"erfahrung",  piece:"tower",  tilt:"1.2deg"},
   {id:"projekte",   piece:"laptop", tilt:"-1deg"},
   {id:"suche",      piece:"sign",   tilt:"1.5deg"},
   {id:"kontakt",    piece:"train",  tilt:"-1deg"},
+  {id:"willkommen", piece:"figur",  tilt:"0deg", label:"Willkommen"},
 ];
+// Versteckte Easter Eggs (ohne Beschriftung) und reine Deko
+const EGGS = [
+  {id:"easteregg",  piece:"cupid"},
+  {id:"easteregg2", piece:"ki"},
+  {id:"easteregg3", piece:"flugzeug"},
+];
+const DECO = [ {piece:"fahnen", cls:"sway"} ];
+const HINT_KEY = "jf-hint-seen";
 const BASE = document.documentElement.dataset.base || "";
 const url = p => !p ? "" : /^(https?:|mailto:|tel:|data:|blob:)/.test(p) ? p : BASE + p.replace(/^\/+/, "");
 const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
@@ -27,18 +36,39 @@ async function buildScene(){
   if (g.hinweis) document.getElementById("hint").textContent = g.hinweis;
   if (g.download_knopf) document.getElementById("dl-btn").textContent = g.download_knopf;
   for (const s of SPOTS){
-    const p = PIECES[s.piece], label = labels[s.id] || s.id;
+    const p = PIECES[s.piece], label = labels[s.id] || s.label || s.id;
     const b = document.createElement("button");
     b.type = "button"; b.className = "spot"; b.dataset.open = s.id; b.setAttribute("aria-label", label);
     b.style.cssText = `left:${p.x}%;top:${p.y}%;width:${p.w}%;height:${p.h}%;--tilt:${s.tilt}`;
-    b.innerHTML = `<img src="${url("img/pieces/"+s.piece+".webp")}" alt="" style="clip-path:${p.clip}"><span class="tag">${esc(label)}</span>`;
+    b.innerHTML = `<img src="${url("img/pieces/"+s.piece+".webp")}" alt=""${p.clip ? ` style="clip-path:${p.clip}"` : ""}><span class="tag">${esc(label)}</span>`;
+    if (s.id === "willkommen") b.classList.add("figure");
+    const cxp = p.x + p.w/2; if (cxp > 85) b.classList.add("tag-r"); else if (cxp < 12) b.classList.add("tag-l");
+    if (s.id === "suche"){
+      const top = g.schild_oben || "Kreativ", bottom = g.schild_unten || "Strategisch";
+      b.insertAdjacentHTML("beforeend", `<span class="board b1">${esc(top)}</span><span class="board b2">${esc(bottom)}</span>`);
+    }
     stage.appendChild(b);
   }
-  const c = PIECES.cupid, e = document.createElement("button");
-  e.type = "button"; e.className = "spot egg"; e.dataset.open = "easteregg"; e.setAttribute("aria-label", "Etwas im Himmel");
-  e.style.cssText = `left:${c.x}%;top:${c.y}%;width:${c.w}%;height:${c.h}%`;
-  e.innerHTML = `<img src="${url("img/pieces/cupid.webp")}" alt="">`;
-  stage.appendChild(e);
+  for (const d of DECO){
+    const p = PIECES[d.piece], el = document.createElement("img");
+    el.className = "deco " + (d.cls || ""); el.alt = ""; el.src = url("img/pieces/"+d.piece+".webp");
+    el.style.cssText = `left:${p.x}%;top:${p.y}%;width:${p.w}%;height:${p.h}%`;
+    stage.appendChild(el);
+  }
+  for (const g of EGGS){
+    const c = PIECES[g.piece], e = document.createElement("button");
+    e.type = "button"; e.className = "spot egg"; e.dataset.open = g.id; e.setAttribute("aria-label", "Etwas Verstecktes");
+    e.style.cssText = `left:${c.x}%;top:${c.y}%;width:${c.w}%;height:${c.h}%`;
+    e.innerHTML = `<img src="${url("img/pieces/"+g.piece+".webp")}" alt="">`;
+    stage.appendChild(e);
+  }
+  // «Hier starten»-Hinweis links neben der Figur, verschwindet nach dem ersten Klick
+  let seen = false; try { seen = sessionStorage.getItem(HINT_KEY) === "1"; } catch(e) {}
+  if (!seen){
+    const h = document.createElement("div"); h.className = "hint"; h.id = "hint-start"; h.setAttribute("aria-hidden","true");
+    h.innerHTML = `<span>Hier starten</span><svg viewBox="0 0 70 50" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8 C 30 6, 48 16, 60 38"/><path d="M47 36 L61 40 L63 25"/></svg>`;
+    stage.appendChild(h);
+  }
   stage.addEventListener("click", ev => { const b = ev.target.closest("[data-open]"); if (b) openSheet(b.dataset.open); });
 }
 
@@ -167,10 +197,16 @@ const RENDER = {
     fotos.forEach(f => { const b = document.createElement("button"); b.type = "button"; b.innerHTML = `<img src="${esc(url(f.bild))}" alt="${esc(f.beschreibung || "")}">`; b.addEventListener("click", () => openViewer(f.beschreibung || c.titel, url(f.bild))); g.appendChild(b); });
   },
 };
-const NARROW = new Set(["suche","kontakt","downloads","easteregg"]);
+RENDER.easteregg2 = RENDER.easteregg;
+RENDER.easteregg3 = RENDER.easteregg;
+RENDER.willkommen = async (c, box) => {
+  box.innerHTML = `<h2 id="s-title">${esc(c.titel)}</h2><div class="prose">${md(c.text)}</div>`;
+};
+const NARROW = new Set(["suche","kontakt","downloads","easteregg","easteregg2","easteregg3","willkommen"]);
 let lastFocus = null;
 async function openSheet(id){
   lastFocus = document.activeElement;
+  if (id === "willkommen"){ document.getElementById("hint-start")?.remove(); try { sessionStorage.setItem(HINT_KEY, "1"); } catch(e) {} }
   const veil = document.getElementById("veil"), sheet = document.getElementById("sheet"), box = document.getElementById("s-body");
   sheet.classList.toggle("narrow", NARROW.has(id));
   box.innerHTML = '<p class="empty">Wird geladen …</p>';

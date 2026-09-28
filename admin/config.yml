@@ -1,5 +1,4 @@
 # Backend (Sveltia CMS) für die Website von Julian Frick
-# WICHTIG: Ersetzen Sie DEIN-GITHUB-NAME zweimal durch Ihren GitHub-Benutzernamen.
 backend:
   name: github
   repo: jjullianf/julian_site
@@ -124,9 +123,46 @@ collections:
               - { name: titel, label: Titel, widget: string }
               - { name: datei, label: Datei, widget: file }
 
+      - name: willkommen
+        label: "Willkommen (Figur in der Mitte)"
+        file: content/willkommen.json
+        fields:
+          - { name: titel, label: Titel, widget: string }
+          - { name: text, label: Text, widget: markdown }
+
       - name: easteregg
         label: "Easter Egg 1/3 (Amor)"
         file: content/easteregg.json
+        fields:
+          - { name: titel, label: Titel, widget: string }
+          - { name: text, label: Text, widget: markdown, required: false }
+          - name: fotos
+            label: Fotos
+            label_singular: Foto
+            widget: list
+            required: false
+            fields:
+              - { name: bild, label: Bild, widget: image }
+              - { name: beschreibung, label: "Beschreibung (optional)", widget: string, required: false }
+
+      - name: easteregg2
+        label: "Easter Egg 2/3 (Logos im Gras)"
+        file: content/easteregg2.json
+        fields:
+          - { name: titel, label: Titel, widget: string }
+          - { name: text, label: Text, widget: markdown, required: false }
+          - name: fotos
+            label: Fotos
+            label_singular: Foto
+            widget: list
+            required: false
+            fields:
+              - { name: bild, label: Bild, widget: image }
+              - { name: beschreibung, label: "Beschreibung (optional)", widget: string, required: false }
+
+      - name: easteregg3
+        label: "Easter Egg 3/3 (Flugzeug)"
+        file: content/easteregg3.json
         fields:
           - { name: titel, label: Titel, widget: string }
           - { name: text, label: Text, widget: markdown, required: false }
@@ -146,6 +182,8 @@ collections:
           - { name: name, label: "Name oben links", widget: string }
           - { name: hinweis, label: "Hinweis unten links", widget: string }
           - { name: download_knopf, label: "Text unten rechts", widget: string }
+          - { name: schild_oben, label: "Wegweiser: oberes Schild", widget: string, required: false }
+          - { name: schild_unten, label: "Wegweiser: unteres Schild", widget: string, required: false }
           - name: beschriftungen
             label: "Beschriftungen beim Überfahren"
             widget: object
@@ -155,3 +193,4 @@ collections:
               - { name: projekte, label: Laptop, widget: string }
               - { name: suche, label: Wegweiser, widget: string }
               - { name: kontakt, label: Bahnhof, widget: string }
+              - { name: willkommen, label: "Figur in der Mitte", widget: string, required: false }
