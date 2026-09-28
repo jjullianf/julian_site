@@ -60,11 +60,12 @@ async function buildScene(){
     e.type = "button"; e.className = "spot egg"; e.dataset.open = g.id; e.setAttribute("aria-label", "Etwas Verstecktes");
     e.style.cssText = `left:${c.x}%;top:${c.y}%;width:${c.w}%;height:${c.h}%`;
     e.innerHTML = `<img src="${url("img/pieces/"+g.piece+".webp")}" alt="">`;
+    if (g.piece === "herzwolke") e.classList.add("outlined");
     stage.appendChild(e);
   }
   // Dokumentenstapel unten rechts: öffnet «CV & Downloads»
   { const p = PIECES.dokumente, b = document.createElement("button");
-    b.type = "button"; b.className = "spot docs-pile"; b.dataset.open = "downloads";
+    b.type = "button"; b.className = "spot docs-pile outlined"; b.dataset.open = "downloads";
     const lab = g.dokumente_label || "CV/Dokumente"; b.setAttribute("aria-label", lab);
     b.style.cssText = `left:${p.x}%;top:${p.y}%;width:${p.w}%;height:${p.h}%;--tilt:2deg`;
     b.innerHTML = `<img src="${url("img/pieces/dokumente.webp")}" alt=""><span class="pile-label" aria-hidden="true">${esc(lab)}</span>`;
@@ -149,10 +150,10 @@ const RENDER = {
   async ausbildung(c, box){
     box.innerHTML = `<h2 id="s-title">${esc(c.titel)}</h2>`;
     for (const a of c.abschnitte || []){
-      const s = document.createElement("section"); s.className = "block";
-      s.innerHTML = `<div><h3>${esc(a.ueberschrift)}</h3>${a.untertitel ? `<p class="sub">${esc(a.untertitel)}</p>` : ""}</div><div class="prose">${md(a.text)}</div>`;
       const docs = (a.dokumente || []).filter(d => d.datei);
-      if (docs.length){ const w = document.createElement("div"); w.className = "docs"; docs.forEach(d => w.appendChild(docCard(d))); s.appendChild(w); }
+      const s = document.createElement("section"); s.className = "block" + (docs.length ? " withdocs" : "");
+      s.innerHTML = `<div class="main"><h3>${esc(a.ueberschrift)}</h3>${a.untertitel ? `<p class="sub">${esc(a.untertitel)}</p>` : ""}<div class="prose">${md(a.text)}</div></div>`;
+      if (docs.length){ const w = document.createElement("div"); w.className = "docs side"; docs.forEach(d => w.appendChild(docCard(d))); s.appendChild(w); }
       box.appendChild(s);
     }
   },
@@ -233,9 +234,7 @@ const RENDER = {
   },
   async easteregg(c, box){
     const fotos = (c.fotos || []).filter(f => f.bild);
-    box.innerHTML = `<h2 id="s-title">${esc(c.titel)}</h2>${c.text ? `<div class="lead">${md(c.text)}</div>` : ""}<div class="photos">${fotos.length ? "" : '<p class="empty">Fotos folgen.</p>'}</div>`;
-    const g = box.querySelector(".photos");
-    fotos.forEach(f => { const b = document.createElement("button"); b.type = "button"; b.innerHTML = `<img src="${esc(url(f.bild))}" alt="${esc(f.beschreibung || "")}">`; b.addEventListener("click", () => openViewer(f.beschreibung || c.titel, url(f.bild))); g.appendChild(b); });
+    box.innerHTML = `<h2 id="s-title">${esc(c.titel)}</h2>${c.text ? `<div class="lead">${md(c.text)}</div>` : ""}${fotos.length ? `<div class="photos">${fotos.map(f => `<figure><img src="${esc(url(f.bild))}" alt="${esc(f.beschreibung || "")}">${f.beschreibung ? `<figcaption>${esc(f.beschreibung)}</figcaption>` : ""}</figure>`).join("")}</div>` : ""}`;
   },
 };
 RENDER.easteregg2 = RENDER.easteregg;
