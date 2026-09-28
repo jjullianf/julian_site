@@ -83,10 +83,12 @@ collections:
         fields:
           - { name: titel, label: Titel, widget: string }
           - { name: untertitel, label: Untertitel, widget: string, required: false }
+          - { name: text, label: "Text (Fliesstext)", widget: markdown, required: false }
           - name: punkte
-            label: Punkte
+            label: "Punkte (optional, erscheinen unter dem Text)"
             label_singular: Punkt
             widget: list
+            required: false
             summary: "{{fields.label}}: {{fields.wert}}"
             fields:
               - { name: label, label: Bezeichnung, widget: string }

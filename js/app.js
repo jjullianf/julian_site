@@ -44,7 +44,7 @@ async function buildScene(){
     if (s.id === "willkommen") b.classList.add("figure");
     const cxp = p.x + p.w/2; if (cxp > 85) b.classList.add("tag-r"); else if (cxp < 12) b.classList.add("tag-l");
     if (s.id === "suche"){
-      const top = g.schild_oben || "Kreativ", bottom = g.schild_unten || "Strategisch";
+      const top = g.schild_oben || "Marketing", bottom = g.schild_unten || "Ab Feb. 2027";
       b.insertAdjacentHTML("beforeend", `<span class="board b1">${esc(top)}</span><span class="board b2">${esc(bottom)}</span>`);
     }
     stage.appendChild(b);
@@ -175,7 +175,8 @@ const RENDER = {
     list();
   },
   async suche(c, box){
-    box.innerHTML = `<h2 id="s-title">${esc(c.titel)}</h2>${c.untertitel ? `<p class="lead">${esc(c.untertitel)}</p>` : ""}<ul class="list">${(c.punkte||[]).map(p => `<li><b>${esc(p.label)}</b><span>${esc(p.wert)}</span></li>`).join("")}</ul>`;
+    const punkte = (c.punkte || []).filter(p => p.label || p.wert);
+    box.innerHTML = `<h2 id="s-title">${esc(c.titel)}</h2>${c.untertitel ? `<p class="lead">${esc(c.untertitel)}</p>` : ""}${c.text ? `<div class="prose">${md(c.text)}</div>` : ""}${punkte.length ? `<ul class="list"${c.text ? ' style="margin-top:20px"' : ""}>${punkte.map(p => `<li><b>${esc(p.label)}</b><span>${esc(p.wert)}</span></li>`).join("")}</ul>` : ""}`;
   },
   async kontakt(c, box){
     box.innerHTML = `<h2 id="s-title">${esc(c.titel)}</h2>${c.text ? `<div class="lead">${md(c.text)}</div>` : ""}<ul class="list">${(c.punkte||[]).map(p => `<li><b>${esc(p.label)}</b><span>${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.wert)}</a>` : esc(p.wert)}</span></li>`).join("")}</ul>`;
