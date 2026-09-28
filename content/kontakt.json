@@ -1,5 +1,5 @@
 {
-  "titel": "Nächster Halt: Ihr Unternehmen",
+  "titel": "Next Stop: Ihr Unternehmen",
   "text": "Ich freue mich, von Ihnen zu hören.",
   "punkte": [
     {
@@ -15,7 +15,7 @@
     {
       "label": "LinkedIn",
       "wert": "Profil ergänzen",
-      "link": ""
+      "link": "https://www.linkedin.com/in/julianfrick/"
     }
   ]
 }
