@@ -133,7 +133,7 @@ collections:
           - { name: text, label: Text, widget: markdown }
 
       - name: easteregg
-        label: "Easter Egg 1/3 (Amor)"
+        label: "Easter Egg 3/3 (Herzwolke)"
         file: content/easteregg.json
         fields:
           - { name: titel, label: Titel, widget: string }
@@ -148,7 +148,7 @@ collections:
               - { name: beschreibung, label: "Beschreibung (optional)", widget: string, required: false }
 
       - name: easteregg2
-        label: "Easter Egg 2/3 (Logos im Gras)"
+        label: "Easter Egg 1/3 (KI-Logos im Gras)"
         file: content/easteregg2.json
         fields:
           - { name: titel, label: Titel, widget: string }
@@ -163,7 +163,7 @@ collections:
               - { name: beschreibung, label: "Beschreibung (optional)", widget: string, required: false }
 
       - name: easteregg3
-        label: "Easter Egg 3/3 (Flugzeug)"
+        label: "Easter Egg 2/3 (Flugzeug)"
         file: content/easteregg3.json
         fields:
           - { name: titel, label: Titel, widget: string }
@@ -183,7 +183,7 @@ collections:
         fields:
           - { name: name, label: "Name oben links", widget: string }
           - { name: hinweis, label: "Hinweis unten links", widget: string }
-          - { name: download_knopf, label: "Text unten rechts", widget: string }
+          - { name: dokumente_label, label: "Beschriftung beim Dokumentenstapel", widget: string, required: false }
           - { name: schild_oben, label: "Wegweiser: oberes Schild", widget: string, required: false }
           - { name: schild_unten, label: "Wegweiser: unteres Schild", widget: string, required: false }
           - name: beschriftungen
