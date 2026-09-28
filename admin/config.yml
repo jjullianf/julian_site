@@ -145,6 +145,7 @@ collections:
         file: content/willkommen.json
         fields:
           - { name: titel, label: Titel, widget: string }
+          - { name: bild, label: "Foto (Headshot, erscheint links vom Text)", widget: image, required: false }
           - { name: text, label: Text, widget: markdown }
 
       - name: easteregg
@@ -197,7 +198,6 @@ collections:
         file: content/allgemein.json
         fields:
           - { name: name, label: "Name oben links", widget: string }
-          - { name: hinweis, label: "Hinweis unten links", widget: string }
           - { name: dokumente_label, label: "Beschriftung beim Dokumentenstapel", widget: string, required: false }
           - { name: schild_oben, label: "Wegweiser: oberes Schild", widget: string, required: false }
           - { name: schild_unten, label: "Wegweiser: unteres Schild", widget: string, required: false }
