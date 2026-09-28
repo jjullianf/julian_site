@@ -38,13 +38,6 @@
       "text": "Marketing ist nicht nur digital. Für Familie und Freunde entstehen immer wieder Flyer, Plakate und auch mal eine Website. Die Ideen entwickeln meine Freundin und ich gemeinsam, die Design-Credits gehen aber ganz klar an Sie.",
       "eintraege": [
         {
-          "titel": "Finanzkommission",
-          "kurz": "Vorder- und Rückseite",
-          "bild": "/uploads/1.png",
-          "bild_rueckseite": "/uploads/2.png",
-          "link": ""
-        },
-        {
           "titel": "POPsanto4",
           "kurz": "Print & Social Media",
           "bild": "/uploads/A4 Allg.png",
@@ -57,6 +50,13 @@
           "bild": "/uploads/Screenshot 2026-09-28 at 15.50.13.png",
           "bild_rueckseite": "",
           "link": "www.popsanto.ch"
+        },
+        {
+          "titel": "Finanzkommission",
+          "kurz": "Vorder- und Rückseite",
+          "bild": "/uploads/1.png",
+          "bild_rueckseite": "/uploads/2.png",
+          "link": ""
         }
       ]
     }
