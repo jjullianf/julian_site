@@ -34,29 +34,29 @@
       ]
     },
     {
-      "titel": "Print & Co.",
-      "text": "Marketing ist nicht nur digital: Für Familie und Freunde entstehen immer wieder Flyer, Plakate und auch einmal eine Website.",
+      "titel": "Für Friends & Family",
+      "text": "Marketing ist nicht nur digital. Für Familie und Freunde entstehen immer wieder Flyer, Plakate und auch mal Website. Design Credits kann ich leider nicht auf mich nehmen, diese gehen an meine Freundin",
       "eintraege": [
         {
-          "titel": "Flyer 1",
+          "titel": "Finanzkommission",
           "kurz": "Vorder- und Rückseite",
-          "bild": "/uploads/flyer1-vorne.jpg",
-          "bild_rueckseite": "/uploads/flyer1-hinten.jpg",
+          "bild": "/uploads/1.png",
+          "bild_rueckseite": "/uploads/2.png",
           "link": ""
         },
         {
-          "titel": "Flyer 2",
-          "kurz": "Vorder- und Rückseite",
-          "bild": "/uploads/flyer2-vorne.jpg",
-          "bild_rueckseite": "/uploads/flyer2-hinten.jpg",
-          "link": ""
-        },
-        {
-          "titel": "Website",
-          "kurz": "Für Familie und Freunde",
-          "bild": "/uploads/familien-website.jpg",
+          "titel": "POPsanto4:",
+          "kurz": "Print & Social Media",
+          "bild": "/uploads/A4 Allg.png",
           "bild_rueckseite": "",
           "link": ""
+        },
+        {
+          "titel": "POPsanto4",
+          "kurz": "Webseite",
+          "bild": "/uploads/Screenshot 2026-09-28 at 15.50.13.png",
+          "bild_rueckseite": "",
+          "link": "www.popsanto.ch"
         }
       ]
     }
