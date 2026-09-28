@@ -179,7 +179,19 @@ const RENDER = {
     box.innerHTML = `<h2 id="s-title">${esc(c.titel)}</h2>${c.untertitel ? `<p class="lead">${esc(c.untertitel)}</p>` : ""}${c.text ? `<div class="prose">${md(c.text)}</div>` : ""}${punkte.length ? `<ul class="list"${c.text ? ' style="margin-top:20px"' : ""}>${punkte.map(p => `<li><b>${esc(p.label)}</b><span>${esc(p.wert)}</span></li>`).join("")}</ul>` : ""}`;
   },
   async kontakt(c, box){
-    box.innerHTML = `<h2 id="s-title">${esc(c.titel)}</h2>${c.text ? `<div class="lead">${md(c.text)}</div>` : ""}<ul class="list">${(c.punkte||[]).map(p => `<li><b>${esc(p.label)}</b><span>${p.link ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.wert)}</a>` : esc(p.wert)}</span></li>`).join("")}</ul>`;
+    const href = p => {
+      let l = (p.link || "").trim(), v = (p.wert || "").trim();
+      if (!l && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) l = v;
+      if (!l && /^\+?[\d\s()/-]{7,}$/.test(v)) l = v;
+      if (!l) return "";
+      if (/^(mailto:|tel:|https?:)/i.test(l)) return l;
+      if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(l)) return "mailto:" + l;
+      if (/^\+?[\d\s()/-]{7,}$/.test(l)) return "tel:" + l.replace(/[^\d+]/g, "");
+      return "https://" + l.replace(/^\/+/, "");
+    };
+    const item = p => { const h = href(p); const ext = /^https?:/i.test(h);
+      return `<li><b>${esc(p.label)}</b><span>${h ? `<a href="${esc(h)}"${ext ? ' target="_blank" rel="noopener"' : ""}>${esc(p.wert)}</a>` : esc(p.wert)}</span></li>`; };
+    box.innerHTML = `<h2 id="s-title">${esc(c.titel)}</h2>${c.text ? `<div class="lead">${md(c.text)}</div>` : ""}<ul class="list">${(c.punkte||[]).map(item).join("")}</ul>`;
   },
   async downloads(c, box){
     box.innerHTML = `<h2 id="s-title">${esc(c.titel)}</h2>${c.text ? `<div class="lead">${md(c.text)}</div>` : ""}<ul class="files"></ul>`;
