@@ -1,9 +1,9 @@
 {
   "name": "Julian Frick",
   "hinweis": "Fahren Sie mit der Maus über einen Ort und klicken Sie darauf, um mehr zu sehen.",
-  "dokumente_label": "Alle Dokumente",
-  "schild_oben": "",
-  "schild_unten": "",
+  "dokumente_label": "CV/Dokumente",
+  "schild_oben": "Marketing",
+  "schild_unten": "ab Feb. 2027",
   "beschriftungen": {
     "ausbildung": "Ausbildung",
     "erfahrung": "Erfahrung",
