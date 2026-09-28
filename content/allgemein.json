@@ -1,8 +1,7 @@
 {
   "name": "Julian Frick",
-  "hinweis": "Fahren Sie über einen Ort und klicken Sie darauf, um mehr zu sehen.",
   "dokumente_label": "CV/Dokumente",
-  "schild_oben": "Marketing",
+  "schild_oben": "Marketing Junior",
   "schild_unten": "ab Feb. 2027",
   "beschriftungen": {
     "ausbildung": "Ausbildung",
@@ -12,5 +11,6 @@
     "kontakt": "Nächster Halt: Ihr Unternehmen",
     "willkommen": ""
   },
-  "download_knopf": "CV/Downloads"
+  "download_knopf": "CV/Downloads",
+  "hinweis": "Fahren Sie über einen Ort und klicken Sie darauf, um mehr zu sehen."
 }
