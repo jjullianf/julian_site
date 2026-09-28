@@ -64,18 +64,33 @@ collections:
         file: content/projekte.json
         fields:
           - { name: titel, label: Titel, widget: string }
+          - name: kennzahl
+            label: "Kennzahl oben (z. B. Besuche pro Monat)"
+            widget: object
+            required: false
+            fields:
+              - { name: wert, label: "Zahl", widget: string, required: false }
+              - { name: label, label: "Beschriftung", widget: string, required: false }
           - { name: einleitung, label: Einleitung, widget: markdown, required: false }
-          - name: projekte
-            label: Projekte
-            label_singular: Projekt
+          - name: abschnitte
+            label: Abschnitte
+            label_singular: Abschnitt
             widget: list
             summary: "{{fields.titel}}"
             fields:
-              - { name: titel, label: Titel, widget: string }
-              - { name: bild, label: "Bild / Screenshot", widget: image }
-              - { name: kurz, label: "Kurzbeschreibung (unter dem Bild)", widget: string, required: false }
-              - { name: text, label: "Text (nach dem Anklicken)", widget: markdown, required: false }
-              - { name: link, label: "Link zur Website (optional)", widget: string, required: false }
+              - { name: titel, label: "Überschrift", widget: string, required: false }
+              - { name: text, label: "Kurzer Text", widget: markdown, required: false }
+              - name: eintraege
+                label: "Einträge (Kacheln)"
+                label_singular: Eintrag
+                widget: list
+                summary: "{{fields.titel}}"
+                fields:
+                  - { name: titel, label: Titel, widget: string }
+                  - { name: kurz, label: "Kurzbeschreibung", widget: string, required: false }
+                  - { name: bild, label: "Bild (bzw. Vorderseite)", widget: image }
+                  - { name: bild_rueckseite, label: "Rückseite (optional, z. B. bei Flyern)", widget: image, required: false }
+                  - { name: link, label: "Link (optional – wenn gesetzt, öffnet der Klick die Website)", widget: string, required: false }
 
       - name: suche
         label: "Was ich suche (Wegweiser)"

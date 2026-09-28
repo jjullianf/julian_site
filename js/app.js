@@ -123,20 +123,22 @@ function docCard(d){
   return b;
 }
 async function openViewer(title, src){
+  const srcs = Array.isArray(src) ? src.filter(Boolean) : [src];
   const v = document.getElementById("viewer");
   document.getElementById("v-title").textContent = title || "";
-  const dl = document.getElementById("v-dl"); dl.href = src; dl.setAttribute("download", "");
+  const dl = document.getElementById("v-dl"); dl.href = srcs[0]; dl.setAttribute("download", ""); dl.hidden = srcs.length > 1;
   const body = document.getElementById("v-body");
   body.innerHTML = '<p class="vmsg">Wird geladen …</p>';
   v.hidden = false; document.getElementById("v-close").focus();
+  const first = srcs[0];
   try {
-    if (isPdf(src)) {
-      const d = await openPdf(src); const w = Math.min(900, body.clientWidth - 32);
+    if (srcs.length === 1 && isPdf(first)) {
+      const d = await openPdf(first); const w = Math.min(900, body.clientWidth - 32);
       body.replaceChildren();
       for (let n = 1; n <= d.numPages; n++) body.appendChild(await renderPage(d, n, w));
-    } else { const i = new Image(); i.src = src; i.alt = title || ""; body.replaceChildren(i); }
+    } else { body.replaceChildren(...srcs.map(s => { const i = new Image(); i.src = s; i.alt = title || ""; return i; })); }
   } catch(e) {
-    if (isPdf(src)) { const f = document.createElement("iframe"); f.src = src; f.title = title || "Dokument"; f.className = "vframe"; body.replaceChildren(f); }
+    if (isPdf(first)) { const f = document.createElement("iframe"); f.src = first; f.title = title || "Dokument"; f.className = "vframe"; body.replaceChildren(f); }
     else body.innerHTML = '<p class="vmsg">Das Dokument konnte nicht geladen werden. Über «Herunterladen» können Sie es direkt öffnen.</p>';
   }
 }
@@ -164,6 +166,25 @@ const RENDER = {
     }
   },
   async projekte(c, box){
+    if (!Array.isArray(c.abschnitte)) return RENDER._projekteAlt(c, box);
+    const k = c.kennzahl && c.kennzahl.wert ? `<p class="stat"><b>${esc(c.kennzahl.wert)}</b><span>${esc(c.kennzahl.label || "")}</span></p>` : "";
+    box.innerHTML = `<h2 id="s-title">${esc(c.titel)}</h2>${k}${c.einleitung ? `<div class="prose lead">${md(c.einleitung)}</div>` : ""}`;
+    for (const a of c.abschnitte){
+      const s = document.createElement("section"); s.className = "block";
+      s.innerHTML = `${a.titel ? `<h3>${esc(a.titel)}</h3>` : ""}${a.text ? `<div class="prose">${md(a.text)}</div>` : ""}<div class="cards"></div>`;
+      const g = s.querySelector(".cards");
+      for (const e of (a.eintraege || [])){
+        const link = (e.link || "").trim(), imgs = [e.bild, e.bild_rueckseite].filter(Boolean).map(url);
+        const inner = `<span class="ph">${imgs[0] ? `<img src="${esc(imgs[0])}" alt="">` : ""}${imgs.length > 1 ? '<span class="flip">Vorder- & Rückseite</span>' : ""}</span><strong>${esc(e.titel)}${link ? ' <span class="ext">↗</span>' : ""}</strong>${e.kurz ? `<small>${esc(e.kurz)}</small>` : ""}`;
+        let el;
+        if (link){ el = document.createElement("a"); el.href = /^https?:/i.test(link) ? link : "https://" + link; el.target = "_blank"; el.rel = "noopener"; }
+        else { el = document.createElement("button"); el.type = "button"; if (imgs.length) el.addEventListener("click", () => openViewer(e.titel, imgs)); }
+        el.className = "proj"; el.innerHTML = inner; g.appendChild(el);
+      }
+      box.appendChild(s);
+    }
+  },
+  async _projekteAlt(c, box){
     const list = () => {
       box.innerHTML = `<h2 id="s-title">${esc(c.titel)}</h2>${c.einleitung ? `<div class="lead">${md(c.einleitung)}</div>` : ""}<div class="projects"></div>`;
       const g = box.querySelector(".projects");

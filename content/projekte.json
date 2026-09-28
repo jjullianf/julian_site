@@ -1,27 +1,64 @@
 {
   "titel": "Meine Projekte",
-  "einleitung": "Neben dem Studium baue ich eigene Websites, von der Idee über das Design bis zu SEO und Monetarisierung. Klicken Sie auf ein Projekt für mehr Details.",
-  "projekte": [
+  "kennzahl": {
+    "wert": "X",
+    "label": "Besuche pro Monat auf meinen Websites"
+  },
+  "einleitung": "Neben dem Studium baue ich eigene Websites, aus Neugier, zum Lernen und weil es mir schlicht Spass macht. Von der Idee über Design und Entwicklung bis zu SEO und Vermarktung mache ich alles selbst, mit Claude Code als wichtigstem Werkzeug. Dabei habe ich unter anderem Daten automatisch gesammelt, ganze Seiten automatisch generieren lassen, einen täglichen Rätselgenerator gebaut, Newsletter und Formulare eingebunden und alles für Google und AI-Suchen optimiert (SEO und AEO).\n\nDie Seiten wachsen mit wenigen Stunden Aufwand im Monat stetig weiter. Das Geld, das dabei hereinkommt, ist ein netter Nebeneffekt. Viel wertvoller ist, dass ich neue Ideen und Designs direkt an echten Nutzerinnen und Nutzern testen kann. Und ja: Auch diese Website ist so entstanden.",
+  "abschnitte": [
     {
-      "titel": "gewinnspieleschweiz.ch",
-      "bild": "/uploads/gewinnspieleschweiz.jpg",
-      "kurz": "Plattform für Schweizer Gewinnspiele",
-      "text": "Eine Übersicht aktueller Gewinnspiele in der Schweiz, mit Newsletter, Blog und Instagram-Kanal. Gebaut auf GitHub Pages, mit automatisch generierten Seiten.",
-      "link": "https://gewinnspieleschweiz.ch"
+      "titel": "Websites",
+      "text": "Eine kleine Auswahl, es gibt noch ein paar mehr. Ein Klick öffnet die Website.",
+      "eintraege": [
+        {
+          "titel": "shikaku.ch",
+          "kurz": "Tägliches Logikrätsel",
+          "bild": "/uploads/shikaku.jpg",
+          "bild_rueckseite": "",
+          "link": "https://shikaku.ch"
+        },
+        {
+          "titel": "Keramik-Karte",
+          "kurz": "Alle Keramik-Malateliers auf einen Blick",
+          "bild": "/uploads/keramik.jpg",
+          "bild_rueckseite": "",
+          "link": ""
+        },
+        {
+          "titel": "gewinnspieleschweiz.ch",
+          "kurz": "Alle Schweizer Gewinnspiele an einem Ort",
+          "bild": "/uploads/gewinnspieleschweiz.jpg",
+          "bild_rueckseite": "",
+          "link": "https://gewinnspieleschweiz.ch"
+        }
+      ]
     },
     {
-      "titel": "shikaku.ch",
-      "bild": "/uploads/shikaku.jpg",
-      "kurz": "Tägliches Logikrätsel",
-      "text": "Ein Logikrätsel-Spiel mit Rangliste, Archiv und SEO-Seiten.",
-      "link": "https://shikaku.ch"
-    },
-    {
-      "titel": "nonogram.ch",
-      "bild": "/uploads/nonogram.jpg",
-      "kurz": "Tägliche Nonogramme in vier Grössen",
-      "text": "Von Grund auf gebaut: tägliche Rätsel in vier Grössen, Rangliste und Anleitung.",
-      "link": "https://nonogram.ch"
+      "titel": "Print & Co.",
+      "text": "Marketing ist nicht nur digital: Für Familie und Freunde entstehen immer wieder Flyer, Plakate und auch einmal eine Website.",
+      "eintraege": [
+        {
+          "titel": "Flyer 1",
+          "kurz": "Vorder- und Rückseite",
+          "bild": "/uploads/flyer1-vorne.jpg",
+          "bild_rueckseite": "/uploads/flyer1-hinten.jpg",
+          "link": ""
+        },
+        {
+          "titel": "Flyer 2",
+          "kurz": "Vorder- und Rückseite",
+          "bild": "/uploads/flyer2-vorne.jpg",
+          "bild_rueckseite": "/uploads/flyer2-hinten.jpg",
+          "link": ""
+        },
+        {
+          "titel": "Website",
+          "kurz": "Für Familie und Freunde",
+          "bild": "/uploads/familien-website.jpg",
+          "bild_rueckseite": "",
+          "link": ""
+        }
+      ]
     }
   ]
 }
