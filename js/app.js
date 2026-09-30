@@ -1,5 +1,5 @@
 // Julian Frick – Website. Inhalte kommen aus /content/*.json (bearbeitbar unter /admin).
-const PIECES = {"uni": {"x": 0.54, "y": 25.21, "w": 29.25, "h": 33.62, "clip": "polygon(89.7% 1.1%,60.8% 0.9%,59.2% 1.9%,53.7% 0.0%,37.7% 2.5%,36.4% 3.3%,32.9% 12.3%,28.8% 16.9%,27.4% 22.8%,8.5% 23.7%,8.4% 48.1%,0.7% 50.3%,0.0% 52.1%,0.0% 99.7%,99.2% 99.8%,99.9% 75.2%,97.9% 54.6%,92.7% 50.3%,92.7% 31.5%,90.3% 23.1%)"}, "tower": {"x": 30.02, "y": 10.11, "w": 17.58, "h": 38.94, "clip": "polygon(17.2% 11.7%,17.0% 38.5%,15.0% 40.2%,7.7% 41.3%,5.8% 42.5%,3.7% 60.1%,1.7% 68.6%,2.9% 69.3%,5.8% 69.3%,7.1% 70.4%,7.1% 77.0%,6.1% 79.9%,1.0% 83.5%,0.0% 94.8%,12.8% 98.2%,45.2% 99.9%,81.3% 98.8%,98.0% 94.4%,99.8% 86.6%,98.5% 70.4%,97.8% 68.0%,93.4% 64.5%,92.5% 64.5%,87.8% 68.4%,85.7% 78.7%,84.7% 80.5%,82.7% 81.1%,77.7% 81.1%,75.9% 80.6%,75.0% 79.5%,75.0% 62.4%,75.9% 61.3%,77.4% 60.9%,81.1% 61.6%,85.5% 61.2%,85.2% 35.7%,83.8% 30.9%,83.5% 23.6%,81.5% 23.5%,78.2% 24.9%,72.6% 25.7%,66.7% 27.6%,63.6% 27.3%,62.4% 26.0%,62.4% 20.1%,63.3% 19.0%,64.8% 18.6%,64.1% 15.3%,64.5% 11.6%,55.1% 8.5%,44.0% 5.7%,42.3% 4.1%,42.2% 0.0%,40.8% 0.1%,40.8% 4.4%,39.5% 5.7%)"}, "laptop": {"x": 48.27, "y": 33.72, "w": 16.39, "h": 20.32, "clip": "polygon(0.0% 78.8%,1.1% 88.0%,78.5% 99.7%,93.2% 82.7%,93.2% 72.5%,97.6% 61.8%,99.8% 1.8%,33.0% 0.0%,29.2% 56.5%)"}, "sign": {"x": 73.74, "y": 41.38, "w": 9.84, "h": 20.85, "clip": "polygon(43.5% 0.0%,40.4% 1.0%,36.5% 4.8%,37.1% 10.2%,35.3% 11.2%,18.5% 11.7%,0.6% 14.5%,1.2% 35.2%,33.1% 32.9%,37.1% 33.9%,36.2% 39.5%,1.5% 42.3%,2.4% 62.2%,4.9% 63.0%,36.5% 61.0%,36.5% 83.4%,30.1% 75.8%,29.2% 87.8%,22.5% 81.4%,26.1% 93.9%,21.3% 98.0%,25.8% 99.2%,42.6% 98.2%,50.2% 99.7%,59.6% 99.7%,62.3% 99.0%,59.9% 95.7%,65.0% 90.1%,59.9% 89.8%,64.4% 81.1%,56.8% 85.7%,57.1% 79.8%,52.0% 84.7%,50.2% 84.7%,49.5% 60.5%,70.2% 58.4%,81.5% 58.7%,99.7% 46.4%,79.6% 36.2%,49.5% 38.8%,48.3% 37.8%,48.3% 32.9%,53.8% 31.4%,83.3% 30.4%,99.7% 18.9%,82.1% 8.2%,74.5% 7.7%,67.5% 9.2%,48.9% 10.2%,47.7% 2.8%)"}, "train": {"x": 83.34, "y": 25.53, "w": 15.88, "h": 17.55, "clip": "polygon(1.3% 40.9%,2.3% 44.5%,8.1% 43.9%,10.0% 46.4%,9.6% 60.0%,7.0% 72.7%,0.0% 76.1%,3.4% 79.1%,8.5% 79.1%,16.6% 82.7%,27.7% 81.5%,33.9% 84.5%,36.3% 83.9%,42.4% 85.8%,44.4% 88.2%,48.4% 87.6%,50.7% 85.2%,58.0% 89.4%,62.7% 88.8%,66.7% 91.8%,69.9% 90.0%,74.2% 94.8%,81.5% 95.5%,83.2% 99.7%,85.1% 99.4%,85.9% 93.6%,87.4% 92.4%,92.8% 93.0%,95.3% 95.5%,98.1% 95.5%,99.8% 90.9%,99.4% 74.8%,96.0% 49.4%,93.0% 46.1%,92.7% 42.4%,85.7% 34.5%,71.0% 13.9%,46.3% 2.4%,45.4% 0.0%,38.8% 0.0%,37.5% 3.0%,23.7% 20.0%)"}, "cupid": {"x": 77.5, "y": 12.5, "w": 4.4, "h": 5.76}, "figur": {"x": 44.53, "y": 54.15, "w": 8.25, "h": 43.62}, "ki": {"x": 57.79, "y": 80.94, "w": 6.31, "h": 7.15}, "flugzeug": {"x": 42.76, "y": 4.79, "w": 7.48, "h": 4.47}, "fahnen": {"x": 93.66, "y": 18.72, "w": 3.17, "h": 4.47}, "dokumente": {"x": 89.23, "y": 84.36, "w": 8.97, "h": 13.3}, "herzwolke": {"x": 77.51, "y": 11.28, "w": 5.38, "h": 6.38}, "wolke1": {"x": 0.0, "y": 3.351, "w": 23.295, "h": 17.128}, "wolke2": {"x": 53.678, "y": 7.553, "w": 13.278, "h": 12.926}, "wolke3": {"x": 72.159, "y": 17.394, "w": 12.859, "h": 10.0}, "vogel1": {"x": 21.411, "y": 5.745, "w": 4.785, "h": 3.723}, "vogel2": {"x": 26.675, "y": 9.681, "w": 4.665, "h": 3.723}, "zug": {"x": 88.337, "y": 33.404, "w": 10.945, "h": 9.468}, "person1": {"x": 18.451, "y": 53.617, "w": 1.316, "h": 6.277}, "person2": {"x": 20.066, "y": 55.957, "w": 0.837, "h": 3.032}, "person3": {"x": 21.142, "y": 53.404, "w": 1.256, "h": 5.319}, "person4": {"x": 23.026, "y": 53.191, "w": 1.226, "h": 5.532}, "person5": {"x": 24.85, "y": 52.926, "w": 1.226, "h": 5.691}};
+const PIECES = {"uni": {"x": 0.54, "y": 25.21, "w": 29.25, "h": 33.62, "clip": "polygon(89.7% 1.1%,60.8% 0.9%,59.2% 1.9%,53.7% 0.0%,37.7% 2.5%,36.4% 3.3%,32.9% 12.3%,28.8% 16.9%,27.4% 22.8%,8.5% 23.7%,8.4% 48.1%,0.7% 50.3%,0.0% 52.1%,0.0% 99.7%,99.2% 99.8%,99.9% 75.2%,97.9% 54.6%,92.7% 50.3%,92.7% 31.5%,90.3% 23.1%)"}, "tower": {"x": 30.02, "y": 10.11, "w": 17.58, "h": 38.94, "clip": "polygon(17.2% 11.7%,17.0% 38.5%,15.0% 40.2%,7.7% 41.3%,5.8% 42.5%,3.7% 60.1%,1.7% 68.6%,2.9% 69.3%,5.8% 69.3%,7.1% 70.4%,7.1% 77.0%,6.1% 79.9%,1.0% 83.5%,0.0% 94.8%,12.8% 98.2%,45.2% 99.9%,81.3% 98.8%,98.0% 94.4%,99.8% 86.6%,98.5% 70.4%,97.8% 68.0%,93.4% 64.5%,92.5% 64.5%,87.8% 68.4%,85.7% 78.7%,84.7% 80.5%,82.7% 81.1%,77.7% 81.1%,75.9% 80.6%,75.0% 79.5%,75.0% 62.4%,75.9% 61.3%,77.4% 60.9%,81.1% 61.6%,85.5% 61.2%,85.2% 35.7%,83.8% 30.9%,83.5% 23.6%,81.5% 23.5%,78.2% 24.9%,72.6% 25.7%,66.7% 27.6%,63.6% 27.3%,62.4% 26.0%,62.4% 20.1%,63.3% 19.0%,64.8% 18.6%,64.1% 15.3%,64.5% 11.6%,55.1% 8.5%,44.0% 5.7%,42.3% 4.1%,42.2% 0.0%,40.8% 0.1%,40.8% 4.4%,39.5% 5.7%)"}, "laptop": {"x": 48.27, "y": 33.72, "w": 16.39, "h": 20.32, "clip": "polygon(0.0% 78.8%,1.1% 88.0%,78.5% 99.7%,93.2% 82.7%,93.2% 72.5%,97.6% 61.8%,99.8% 1.8%,33.0% 0.0%,29.2% 56.5%)"}, "sign": {"x": 73.74, "y": 41.38, "w": 9.84, "h": 20.85, "clip": "polygon(43.5% 0.0%,40.4% 1.0%,36.5% 4.8%,37.1% 10.2%,35.3% 11.2%,18.5% 11.7%,0.6% 14.5%,1.2% 35.2%,33.1% 32.9%,37.1% 33.9%,36.2% 39.5%,1.5% 42.3%,2.4% 62.2%,4.9% 63.0%,36.5% 61.0%,36.5% 83.4%,30.1% 75.8%,29.2% 87.8%,22.5% 81.4%,26.1% 93.9%,21.3% 98.0%,25.8% 99.2%,42.6% 98.2%,50.2% 99.7%,59.6% 99.7%,62.3% 99.0%,59.9% 95.7%,65.0% 90.1%,59.9% 89.8%,64.4% 81.1%,56.8% 85.7%,57.1% 79.8%,52.0% 84.7%,50.2% 84.7%,49.5% 60.5%,70.2% 58.4%,81.5% 58.7%,99.7% 46.4%,79.6% 36.2%,49.5% 38.8%,48.3% 37.8%,48.3% 32.9%,53.8% 31.4%,83.3% 30.4%,99.7% 18.9%,82.1% 8.2%,74.5% 7.7%,67.5% 9.2%,48.9% 10.2%,47.7% 2.8%)"}, "train": {"x": 83.34, "y": 25.53, "w": 15.88, "h": 17.55, "clip": "polygon(1.3% 40.9%,2.3% 44.5%,8.1% 43.9%,10.0% 46.4%,9.6% 60.0%,7.0% 72.7%,0.0% 76.1%,3.4% 79.1%,8.5% 79.1%,16.6% 82.7%,27.7% 81.5%,33.9% 84.5%,36.3% 83.9%,42.4% 85.8%,44.4% 88.2%,48.4% 87.6%,50.7% 85.2%,58.0% 89.4%,62.7% 88.8%,66.7% 91.8%,69.9% 90.0%,74.2% 94.8%,81.5% 95.5%,83.2% 99.7%,85.1% 99.4%,85.9% 93.6%,87.4% 92.4%,92.8% 93.0%,95.3% 95.5%,98.1% 95.5%,99.8% 90.9%,99.4% 74.8%,96.0% 49.4%,93.0% 46.1%,92.7% 42.4%,85.7% 34.5%,71.0% 13.9%,46.3% 2.4%,45.4% 0.0%,38.8% 0.0%,37.5% 3.0%,23.7% 20.0%)"}, "cupid": {"x": 77.5, "y": 12.5, "w": 4.4, "h": 5.76}, "figur": {"x": 44.53, "y": 54.15, "w": 8.25, "h": 43.62}, "ki": {"x": 57.79, "y": 80.94, "w": 6.31, "h": 7.15}, "flugzeug": {"x": 42.76, "y": 4.79, "w": 7.48, "h": 4.47}, "fahnen": {"x": 93.66, "y": 18.72, "w": 3.17, "h": 4.47}, "dokumente": {"x": 89.23, "y": 84.36, "w": 8.97, "h": 13.3}, "herzwolke": {"x": 77.51, "y": 11.28, "w": 5.38, "h": 6.38}, "wolke1": {"x": 0.0, "y": 3.351, "w": 23.295, "h": 17.128}, "wolke2": {"x": 53.678, "y": 7.553, "w": 13.278, "h": 12.926}, "wolke3": {"x": 72.159, "y": 17.394, "w": 12.859, "h": 10.0}, "vogel1": {"x": 21.411, "y": 5.745, "w": 4.785, "h": 3.723}, "vogel2": {"x": 26.675, "y": 9.681, "w": 4.665, "h": 3.723}, "zug": {"x": 88.337, "y": 33.404, "w": 10.945, "h": 9.468}, "person1": {"x": 18.451, "y": 53.617, "w": 1.316, "h": 6.277}, "person2": {"x": 20.066, "y": 55.957, "w": 0.837, "h": 3.032}, "person3": {"x": 21.142, "y": 53.404, "w": 1.256, "h": 5.319}, "person4": {"x": 23.026, "y": 53.191, "w": 1.226, "h": 5.532}, "person5": {"x": 24.85, "y": 52.926, "w": 1.226, "h": 5.691}, "spiele": {"x": 3.47, "y": 63.3, "w": 6.46, "h": 7.77}};
 const SPOTS = [
   {id:"ausbildung", piece:"uni",    tilt:"-1.5deg"},
   {id:"erfahrung",  piece:"tower",  tilt:"1.2deg"},
@@ -14,6 +14,7 @@ const EGGS = [
   {id:"easteregg2", piece:"ki"},
   {id:"easteregg3", piece:"flugzeug"},
   {id:"easteregg",  piece:"herzwolke"},
+  {id:"easteregg4", piece:"spiele"},
 ];
 const DECO = [];
 // Hintergrund-Bewegung: Wolken ziehen langsam, Vögel flattern (liegen hinter allen klickbaren Orten)
@@ -80,7 +81,7 @@ async function buildScene(){
     e.type = "button"; e.className = "spot egg"; e.dataset.open = g.id; e.setAttribute("aria-label", "Etwas Verstecktes");
     e.style.cssText = `left:${c.x}%;top:${c.y}%;width:${c.w}%;height:${c.h}%`;
     e.innerHTML = `<img src="${url("img/pieces/"+g.piece+".webp")}" alt="">`;
-    if (g.piece === "herzwolke") e.classList.add("outlined");
+    if (g.piece === "herzwolke" || g.piece === "spiele") e.classList.add("outlined");
     stage.appendChild(e);
   }
   // Dokumentenstapel unten rechts: öffnet «CV & Downloads»
@@ -262,7 +263,67 @@ RENDER.easteregg3 = RENDER.easteregg;
 RENDER.willkommen = async (c, box) => {
   box.innerHTML = `<h2 id="s-title">${esc(c.titel)}</h2><div class="welcome${c.bild ? " withphoto" : ""}">${c.bild ? `<img class="headshot" src="${esc(url(c.bild))}" alt="${esc(c.bild_text || "Julian Frick")}">` : ""}<div class="prose">${md(c.text)}</div></div>`;
 };
-const NARROW = new Set(["suche","kontakt","downloads","easteregg","easteregg2","easteregg3","willkommen"]);
+
+/* ---------- Fun Fact 4: Crack the Code ---------- */
+const CODE_SYMBOLS = [
+  {id:"laptop",   img:"laptop",   name:"Laptop"},
+  {id:"uni",      img:"uni",      name:"Universität"},
+  {id:"train",    img:"train",    name:"Bahnhof"},
+  {id:"tower",    img:"tower",    name:"Bürogebäude"},
+  {id:"figur",    img:"figur",    name:"Person"},
+  {id:"flugzeug", img:"flugzeug", name:"Flugzeug"},
+];
+let SECRET = [];
+const newSecret = () => { const ids = CODE_SYMBOLS.map(s => s.id); for (let i = ids.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [ids[i], ids[j]] = [ids[j], ids[i]]; } return ids.slice(0, 4); };
+const MAX_TRIES = 8, SOLVED_KEY = "jf-code-solved";
+const sym = id => CODE_SYMBOLS.find(s => s.id === id);
+const symImg = id => `<img class="sym-${id}" src="${url("img/pieces/"+sym(id).img+".webp")}" alt="${esc(sym(id).name)}">`;
+RENDER.easteregg4 = async (c, box) => {
+  let solved = false; try { solved = sessionStorage.getItem(SOLVED_KEY) === "1"; } catch(e) {}
+  const title = `<h2 id="s-title">${esc(c.titel)}</h2>`;
+  const reveal = (msg) => {
+    box.innerHTML = `${title}${msg ? `<p class="code-msg">${msg}</p>` : ""}${c.text ? `<div class="prose">${md(c.text)}</div>` : ""}<p style="margin-top:18px"><button type="button" class="linkbtn" id="code-again">↺ Nochmal spielen</button></p>`;
+    box.querySelector("#code-again").addEventListener("click", play);
+  };
+  if (solved) return reveal("");
+  play();
+  function play(){
+  SECRET = newSecret();
+  let tries = [], cur = [];
+  box.innerHTML = `${title}<div class="lead">${md(c.raetsel_text || "")}</div>
+    <div class="code-game">
+      <div class="code-rows" id="code-rows"></div>
+      <div class="code-cur"><div class="code-slots" id="code-cur"></div><button type="button" class="code-check" id="code-check" disabled>Prüfen</button></div>
+      <div class="code-pal" id="code-pal">${CODE_SYMBOLS.map(s => `<button type="button" class="code-sym" data-sym="${s.id}" aria-label="${esc(s.name)}">${symImg(s.id)}</button>`).join("")}</div>
+      <p class="code-info" id="code-info"></p>
+    </div>`;
+  const rowsEl = box.querySelector("#code-rows"), curEl = box.querySelector("#code-cur"), check = box.querySelector("#code-check"), info = box.querySelector("#code-info");
+  const draw = () => {
+    rowsEl.innerHTML = tries.map(tr => `<div class="code-slots done">${tr.map((id,i) => `<span class="slot ${SECRET[i]===id ? "hit" : SECRET.includes(id) ? "near" : "miss"}">${symImg(id)}</span>`).join("")}</div>`).join("");
+    curEl.innerHTML = [0,1,2,3].map(i => cur[i] ? `<button type="button" class="slot filled" data-i="${i}" aria-label="${esc(sym(cur[i]).name)} entfernen">${symImg(cur[i])}</button>` : `<span class="slot empty"></span>`).join("");
+    const out = new Set(tries.flat().filter(id => !SECRET.includes(id)));
+    box.querySelectorAll(".code-sym").forEach(b => { b.disabled = cur.includes(b.dataset.sym) || cur.length >= 4; b.classList.toggle("out", out.has(b.dataset.sym)); });
+    check.disabled = cur.length < 4;
+    info.textContent = `Versuch ${Math.min(tries.length+1, MAX_TRIES)} von ${MAX_TRIES}`;
+  };
+  box.querySelector("#code-pal").addEventListener("click", e => { const b = e.target.closest(".code-sym"); if (!b || cur.length >= 4 || cur.includes(b.dataset.sym)) return; cur.push(b.dataset.sym); draw(); });
+  curEl.addEventListener("click", e => { const b = e.target.closest(".slot.filled"); if (!b) return; cur.splice(+b.dataset.i, 1); draw(); });
+  check.addEventListener("click", () => {
+    if (cur.length < 4) return;
+    tries.push(cur.slice()); const won = cur.every((id,i) => SECRET[i] === id); cur = []; draw();
+    if (won || tries.length >= MAX_TRIES){
+      try { sessionStorage.setItem(SOLVED_KEY, "1"); } catch(e) {}
+      box.querySelector(".code-cur").remove(); box.querySelector("#code-pal").remove();
+      info.innerHTML = won ? `<b>Geknackt!</b> In ${tries.length} ${tries.length === 1 ? "Versuch" : "Versuchen"}.` : `Knapp daneben. Die Lösung war: ${SECRET.map(id => sym(id).name).join(" → ")}.`;
+      const cont = document.createElement("button"); cont.type = "button"; cont.className = "code-check"; cont.textContent = "Fun Fact lesen";
+      cont.addEventListener("click", () => reveal(won ? "Code geknackt!" : ""));
+      info.after(cont); cont.focus();
+    }
+  });
+  draw();
+  }
+};
+const NARROW = new Set(["suche","kontakt","downloads","easteregg","easteregg2","easteregg3","easteregg4","willkommen"]);
 let lastFocus = null;
 async function openSheet(id){
   lastFocus = document.activeElement;
