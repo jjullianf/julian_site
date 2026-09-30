@@ -193,6 +193,14 @@ collections:
               - { name: bild, label: Bild, widget: image }
               - { name: beschreibung, label: "Beschreibung (optional)", widget: string, required: false }
 
+      - name: easteregg4
+        label: "Fun Fact 4/4 (Spiele, Crack the Code)"
+        file: content/easteregg4.json
+        fields:
+          - { name: titel, label: Titel, widget: string }
+          - { name: raetsel_text, label: "Text über dem Rätsel", widget: markdown, required: false }
+          - { name: text, label: "Text nach dem Lösen", widget: markdown, required: false }
+
       - name: allgemein
         label: "Allgemein (Name, Beschriftungen)"
         file: content/allgemein.json

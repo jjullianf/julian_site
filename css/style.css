@@ -189,5 +189,3 @@ button.slot:hover{border-color:var(--coral)}
 .code-game img.sym-figur{transform:none}
 .code-game img.sym-tower{transform:scale(.9)}
 .spot.egg.outlined[data-open="easteregg4"]{filter:drop-shadow(0 2px 3px rgba(40,25,5,.35))}
-.code-sym.out img{filter:grayscale(1);opacity:.35}
-.code-sym.out{border-style:dashed;border-color:var(--line)}
