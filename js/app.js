@@ -201,7 +201,8 @@ const RENDER = {
         let el;
         if (link){ el = document.createElement("a"); el.href = /^https?:/i.test(link) ? link : "https://" + link; el.target = "_blank"; el.rel = "noopener"; }
         else { el = document.createElement("button"); el.type = "button"; if (imgs.length) el.addEventListener("click", () => openViewer(e.titel, imgs)); }
-        el.className = "proj"; el.innerHTML = inner; g.appendChild(el);
+        el.className = "proj" + (imgs.length > 1 ? " flyer" : ""); el.innerHTML = inner; g.appendChild(el);
+        const pi = el.querySelector(".ph img"); if (pi) pi.addEventListener("load", () => { if (pi.naturalHeight > pi.naturalWidth) el.classList.add("flyer"); });
       }
       box.appendChild(s);
     }

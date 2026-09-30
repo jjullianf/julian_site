@@ -74,9 +74,9 @@ button:focus-visible,a:focus-visible{outline:2px dashed var(--ink);outline-offse
 .files li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 14px;background:var(--paper-2)}
 .files .acts{display:flex;gap:14px}
 .files button,.files a{font:inherit;font-size:13px;font-weight:600;color:var(--teal);background:none;border:0;padding:0;cursor:pointer;text-decoration:none}
-.photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.photos{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}
 .photos button{padding:0;border:0;background:none;cursor:zoom-in}
-.photos img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;box-shadow:inset 0 0 0 6px var(--paper),0 1px 3px rgba(0,0,0,.2);border:6px solid var(--paper)}
+.photos img{width:100%;height:auto;max-height:420px;object-fit:contain;display:block;box-shadow:0 1px 3px rgba(0,0,0,.2);border:6px solid #fff}
 .empty{color:var(--muted);font-size:14px}
 /* viewer */
 .viewer{position:fixed;inset:0;z-index:80;background:rgba(25,21,14,.86);display:flex;flex-direction:column;animation:fade .2s}
@@ -132,7 +132,7 @@ a.proj{text-decoration:none}
 .docs.side .doc{width:104px}
 .docs.side .doc span.t{font-size:12px}
 .spot.outlined{filter:drop-shadow(1.5px 0 0 var(--paper)) drop-shadow(-1.5px 0 0 var(--paper)) drop-shadow(0 1.5px 0 var(--paper)) drop-shadow(0 -1.5px 0 var(--paper)) drop-shadow(0 3px 4px rgba(40,25,5,.35))}
-.photos figure{margin:0;display:flex;flex-direction:column;gap:6px}
+.photos figure{margin:0;display:flex;flex-direction:column;gap:6px;flex:1 1 220px;max-width:100%}
 .photos figcaption{font-size:13px;color:var(--muted)}
 @media (max-width:700px){.block.withdocs{grid-template-columns:1fr}.docs.side{flex-wrap:wrap}}
 .nametag{position:absolute;left:2.2%;top:3.2%;z-index:3;pointer-events:none;background:var(--paper);color:var(--ink);
@@ -191,3 +191,6 @@ button.slot:hover{border-color:var(--coral)}
 .spot.egg.outlined[data-open="easteregg4"]{filter:drop-shadow(0 2px 3px rgba(40,25,5,.35))}
 .code-sym.out img{filter:grayscale(1);opacity:.35}
 .code-sym.out{border-style:dashed;border-color:var(--line)}
+.cards{align-items:start}
+.proj.flyer .ph{aspect-ratio:auto;background:none;box-shadow:none}
+.proj.flyer .ph img{height:auto;object-fit:contain;box-shadow:0 1px 3px rgba(0,0,0,.18)}
