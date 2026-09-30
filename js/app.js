@@ -266,14 +266,15 @@ RENDER.willkommen = async (c, box) => {
 
 /* ---------- Fun Fact 4: Crack the Code ---------- */
 const CODE_SYMBOLS = [
-  {id:"train",    img:"train",    name:"Bahnhof"},
-  {id:"flugzeug", img:"flugzeug", name:"Flugzeug"},
-  {id:"uni",      img:"uni",      name:"Universität"},
-  {id:"figur",    img:"figur",    name:"Person"},
-  {id:"tower",    img:"tower",    name:"Bürogebäude"},
   {id:"laptop",   img:"laptop",   name:"Laptop"},
+  {id:"uni",      img:"uni",      name:"Universität"},
+  {id:"train",    img:"train",    name:"Bahnhof"},
+  {id:"tower",    img:"tower",    name:"Bürogebäude"},
+  {id:"figur",    img:"figur",    name:"Person"},
+  {id:"flugzeug", img:"flugzeug", name:"Flugzeug"},
 ];
-const SECRET = ["train","flugzeug","uni","figur"];
+let SECRET = [];
+const newSecret = () => { const ids = CODE_SYMBOLS.map(s => s.id); for (let i = ids.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [ids[i], ids[j]] = [ids[j], ids[i]]; } return ids.slice(0, 4); };
 const MAX_TRIES = 8, SOLVED_KEY = "jf-code-solved";
 const sym = id => CODE_SYMBOLS.find(s => s.id === id);
 const symImg = id => `<img class="sym-${id}" src="${url("img/pieces/"+sym(id).img+".webp")}" alt="${esc(sym(id).name)}">`;
@@ -281,9 +282,13 @@ RENDER.easteregg4 = async (c, box) => {
   let solved = false; try { solved = sessionStorage.getItem(SOLVED_KEY) === "1"; } catch(e) {}
   const title = `<h2 id="s-title">${esc(c.titel)}</h2>`;
   const reveal = (msg) => {
-    box.innerHTML = `${title}${msg ? `<p class="code-msg">${msg}</p>` : ""}${c.text ? `<div class="prose">${md(c.text)}</div>` : ""}`;
+    box.innerHTML = `${title}${msg ? `<p class="code-msg">${msg}</p>` : ""}${c.text ? `<div class="prose">${md(c.text)}</div>` : ""}<p style="margin-top:18px"><button type="button" class="linkbtn" id="code-again">↺ Nochmal spielen</button></p>`;
+    box.querySelector("#code-again").addEventListener("click", play);
   };
   if (solved) return reveal("");
+  play();
+  function play(){
+  SECRET = newSecret();
   let tries = [], cur = [];
   box.innerHTML = `${title}<div class="lead">${md(c.raetsel_text || "")}</div>
     <div class="code-game">
@@ -296,7 +301,8 @@ RENDER.easteregg4 = async (c, box) => {
   const draw = () => {
     rowsEl.innerHTML = tries.map(tr => `<div class="code-slots done">${tr.map((id,i) => `<span class="slot ${SECRET[i]===id ? "hit" : SECRET.includes(id) ? "near" : "miss"}">${symImg(id)}</span>`).join("")}</div>`).join("");
     curEl.innerHTML = [0,1,2,3].map(i => cur[i] ? `<button type="button" class="slot filled" data-i="${i}" aria-label="${esc(sym(cur[i]).name)} entfernen">${symImg(cur[i])}</button>` : `<span class="slot empty"></span>`).join("");
-    box.querySelectorAll(".code-sym").forEach(b => b.disabled = cur.includes(b.dataset.sym) || cur.length >= 4);
+    const out = new Set(tries.flat().filter(id => !SECRET.includes(id)));
+    box.querySelectorAll(".code-sym").forEach(b => { b.disabled = cur.includes(b.dataset.sym) || cur.length >= 4; b.classList.toggle("out", out.has(b.dataset.sym)); });
     check.disabled = cur.length < 4;
     info.textContent = `Versuch ${Math.min(tries.length+1, MAX_TRIES)} von ${MAX_TRIES}`;
   };
@@ -315,6 +321,7 @@ RENDER.easteregg4 = async (c, box) => {
     }
   });
   draw();
+  }
 };
 const NARROW = new Set(["suche","kontakt","downloads","easteregg","easteregg2","easteregg3","easteregg4","willkommen"]);
 let lastFocus = null;
