@@ -188,9 +188,15 @@ button.slot:hover{border-color:var(--coral)}
 @media (max-width:480px){.slot{width:46px;height:46px}.slot img{width:28px;height:28px}.code-sym{width:52px;height:52px}}
 .code-game img.sym-figur{transform:none}
 .code-game img.sym-tower{transform:scale(.9)}
-.spot.egg.outlined[data-open="easteregg4"]{filter:drop-shadow(0 2px 3px rgba(40,25,5,.35))}
+.spot.egg.outlined[data-open="easteregg4"]:not(:has(img:hover)):not(:focus-visible){filter:drop-shadow(0 2px 3px rgba(40,25,5,.35))}
 .code-sym.out img{filter:grayscale(1);opacity:.35}
 .code-sym.out{border-style:dashed;border-color:var(--line)}
 .cards{align-items:start}
 .proj.flyer .ph{aspect-ratio:auto;background:none;box-shadow:none}
 .proj.flyer .ph img{height:auto;object-fit:contain;box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.mobile-tip{display:none;max-width:860px;margin:10px auto 0;padding:8px 12px;font-size:13px;line-height:1.45;color:var(--muted);background:var(--paper-2);text-align:center}
+@media (max-width:900px),(pointer:coarse){.mobile-tip{display:block}}
+@media (max-width:520px){
+  .code-pal{flex-wrap:nowrap;gap:4px;width:100%}
+  .code-sym{flex:1 1 0;min-width:0;width:auto;height:auto;aspect-ratio:1;padding:3px}
+}
