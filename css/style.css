@@ -133,6 +133,10 @@ a.proj{text-decoration:none}
 .docs.side .doc span.t{font-size:12px}
 .spot.outlined{filter:drop-shadow(1.5px 0 0 var(--paper)) drop-shadow(-1.5px 0 0 var(--paper)) drop-shadow(0 1.5px 0 var(--paper)) drop-shadow(0 -1.5px 0 var(--paper)) drop-shadow(0 3px 4px rgba(40,25,5,.35))}
 .photos figure{margin:0;display:flex;flex-direction:column;gap:6px;flex:1 1 220px;max-width:100%}
+.photos figure.land{flex:1 1 100%;order:-1}
+.photos figure.land img{max-height:none}
+.photos figure.port{flex:1 1 0;min-width:0}
+.photos figure.port img{aspect-ratio:3/4;object-fit:cover;max-height:none}
 .photos figcaption{font-size:13px;color:var(--muted)}
 @media (max-width:700px){.block.withdocs{grid-template-columns:1fr}.docs.side{flex-wrap:wrap}}
 .nametag{position:absolute;left:2.2%;top:3.2%;z-index:3;pointer-events:none;background:var(--paper);color:var(--ink);

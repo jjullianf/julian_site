@@ -256,7 +256,7 @@ const RENDER = {
   },
   async easteregg(c, box){
     const fotos = (c.fotos || []).filter(f => f.bild);
-    box.innerHTML = `<h2 id="s-title">${esc(c.titel)}</h2>${c.text ? `<div class="lead">${md(c.text)}</div>` : ""}${fotos.length ? `<div class="photos">${fotos.map(f => `<figure><img src="${esc(url(f.bild))}" alt="${esc(f.beschreibung || "")}">${f.beschreibung ? `<figcaption>${esc(f.beschreibung)}</figcaption>` : ""}</figure>`).join("")}</div>` : ""}`;
+    box.innerHTML = `<h2 id="s-title">${esc(c.titel)}</h2>${c.text ? `<div class="lead">${md(c.text)}</div>` : ""}${fotos.length ? `<div class="photos">${fotos.map(f => `<figure><img src="${esc(url(f.bild))}" alt="${esc(f.beschreibung || "")}" onload="this.parentNode.classList.add(this.naturalWidth>this.naturalHeight?'land':'port')">${f.beschreibung ? `<figcaption>${esc(f.beschreibung)}</figcaption>` : ""}</figure>`).join("")}</div>` : ""}`;
   },
 };
 RENDER.easteregg2 = RENDER.easteregg;
